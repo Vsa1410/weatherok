@@ -1,0 +1,30 @@
+.body{
+    background: rgb(195,113,9);
+    background: linear-gradient(27deg, rgba(195,113,9,1) 0%, rgba(6,121,147,1) 47%, rgba(0,212,255,1) 100%); 
+    color: white;
+    margin: 0;
+    padding: 0;
+}
+.current-information{
+    color: white;
+    background-color: #1FBEC8;
+    background: rgba(31, 190, 200, 0.76);
+    border-radius: 17px;
+    
+    width: 320px;
+    height: 145px;
+    margin:0 0 22px 10%;
+    
+
+
+
+}
+.forecast{
+    display:flex;
+    justify-content: space-around;
+    background: rgba(17, 90, 95, 0.56);
+border-radius: 8px;
+width: 320px;
+height: 63px;
+margin:0 0 22px 10%;
+}
