@@ -3,29 +3,31 @@ import "./index.css"
 import DailyForecast from "./daylyforecast";
 
 const daysForecasts = []
+let daysForecasts3 = []
 
 
 
 
 
 
-async function getData(){
-    let response = await fetch ('http://dataservice.accuweather.com/forecasts/v1/daily/5day/33806?apikey=fLEnBDZUYLr7GMScmfxJrlm01rNUwTmY&language=pt-br&details=true&metric=true HTTP/1.1')
-    let data = await response.json()
-    daysForecasts.push(data.DailyForecast)
-    console.log(daysForecasts)
-    console.log(data)
-}
 
-const daysForecasts2 = daysForecasts[0]
 
-console.log(daysForecasts2)
 function Home (){
     
+    const [daysForecasts3 ,setForecasts3] = useState([])
     
-     
+    async function getData(){
+        let response = await fetch ('http://dataservice.accuweather.com/forecasts/v1/daily/5day/33806?apikey=fLEnBDZUYLr7GMScmfxJrlm01rNUwTmY&language=pt-br&details=true&metric=true HTTP/1.1')
+        let data = await response.json()
+        
+        
+        daysForecasts.push(data.DailyForecasts)
+        setForecasts3(daysForecasts[0])
+        console.log(daysForecasts3)
+        
+    }
     
-
+    getData()
     
     return(
         
@@ -54,8 +56,9 @@ function Home (){
 
                     </div>
                 </div>
-                {daysForecasts.map((day)=> 
+                {daysForecasts3.map((day, index)=> 
                     <DailyForecast 
+                    key={index}
                     date={day.Date}
                     tempmax={day.Temperature.Maximum.Value}
                     tempmin={day.Temperature.Minimum.Value}
