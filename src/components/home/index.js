@@ -17,7 +17,7 @@ function Home (){
     const [daysForecasts3 ,setForecasts3] = useState([])
     
     async function getData(){
-        let response = await fetch ('http://dataservice.accuweather.com/forecasts/v1/daily/5day/33806?apikey=fLEnBDZUYLr7GMScmfxJrlm01rNUwTmY&language=pt-br&details=true&metric=true HTTP/1.1')
+        let response = await fetch ('https://dataservice.accuweather.com/forecasts/v1/daily/5day/33806?apikey=fLEnBDZUYLr7GMScmfxJrlm01rNUwTmY&language=pt-br&details=true&metric=true HTTP/1.1')
         let data = await response.json()
         
         
