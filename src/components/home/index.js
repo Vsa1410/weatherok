@@ -1,29 +1,35 @@
 import React, { Fragment, useState, useEffect } from "react";
 import "./index.css"
+import DailyForecast from "./daylyforecast";
+
+const daysForecasts = []
+
+
+
+
 
 
 async function getData(){
     let response = await fetch ('http://dataservice.accuweather.com/forecasts/v1/daily/5day/33806?apikey=fLEnBDZUYLr7GMScmfxJrlm01rNUwTmY&language=pt-br&details=true&metric=true HTTP/1.1')
     let data = await response.json()
+    daysForecasts.push(data.DailyForecast)
+    console.log(daysForecasts)
     console.log(data)
-    return data;
 }
+
+const daysForecasts2 = daysForecasts[0]
+
+console.log(daysForecasts2)
 function Home (){
     
+    
+     
+    
 
-
-    const [days, setDays] = useState([])
-
-    useEffect(()=> {
-        getData().then(data=>{
-            setDays(data['days'])
-        })
-    }, [])
-
-
+    
     return(
         
-
+        
 
 
         <div className="body">
@@ -48,35 +54,19 @@ function Home (){
 
                     </div>
                 </div>
-                <div className="forecast">
-                    <h4>16/07</h4>
-                    <h4>25°/12</h4>
-                    <h4>0mm</h4>
-                </div>
+                {daysForecasts.map((day)=> 
+                    <DailyForecast 
+                    date={day.Date}
+                    tempmax={day.Temperature.Maximum.Value}
+                    tempmin={day.Temperature.Minimum.Value}
+                    rainmm={day.Night.TotalLiquid.Value}
+                />
+                )}
+                
+    
+                
 
-                <div className="forecast">
-                    <h4>16/07</h4>
-                    <h4>25°/12</h4>
-                    <h4>0mm</h4>
-                </div>
-
-                <div className="forecast">
-                    <h4>16/07</h4>
-                    <h4>25°/12</h4>
-                    <h4>0mm</h4>
-                </div>
-
-                <div className="forecast">
-                    <h4>16/07</h4>
-                    <h4>25°/12</h4>
-                    <h4>0mm</h4>
-                </div>
-
-                <div className="forecast">
-                    <h4>16/07</h4>
-                    <h4>25°/12</h4>
-                    <h4>0mm</h4>
-                </div>
+                
         </div>
     )
 }
