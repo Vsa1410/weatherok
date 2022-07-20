@@ -8,7 +8,7 @@ function ActualWeather(){
     const [actual, setActual]= useState([])
 
     async function getData(){
-        let response = await fetch('https://dataservice.accuweather.com/currentconditions/v1/33806?apikey=fLEnBDZUYLr7GMScmfxJrlm01rNUwTmY&language=pt-br&details=true HTTP/1.1')
+        let response = await fetch('https://dataservice.accuweather.com/currentconditions/v1/33806?apikey=lqEAAB3HFjHmt2QXmRfvWHBA2h7T7tM0&language=pt-br&details=true HTTP/1.1')
         let data = response.json()
         
 
@@ -21,15 +21,20 @@ function ActualWeather(){
         getData().then(data => {
 
             setActual(data[0])
+            console.log(data)
+            console.log(actual)
+            
         })
             
         
 
     },[])
-    console.log(actual)
-        
+   
     let currentconditions = actual.Temperature.Metric.Value + " °"+ actual.Temperature.Metric.Unit
+        
+    
     return(
+        
          <div>   
             
                 <div className="current-information" style={{display:"flex",
