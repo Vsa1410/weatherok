@@ -29,8 +29,8 @@ function ActualWeather(){
         
 
     },[])
-   
-    let currentconditions = actual.Temperature.Metric.Value + " °"+ actual.Temperature.Metric.Unit
+    const [currentconditions ,setCurrent] = useState("")
+    // setCurrent = 
         
     
     return(
@@ -41,7 +41,7 @@ function ActualWeather(){
                                                         justifyContent:"space-around"           }}>
                 <div>
                     <h3 style={{color:"white",marginBottom:"10px"}}>Juiz de Fora, MG</h3>
-                    <h1 style={{color:"white", fontSize:"60px",paddingTop:"0",marginTop: "0",marginBottom:"0"}}>{currentconditions}</h1>
+                    <h1 style={{color:"white", fontSize:"60px",paddingTop:"0",marginTop: "0",marginBottom:"0"}}>{actual.Temperature.Metric.Value + " °"+ actual.Temperature.Metric.Unit}</h1>
                     <h5 style={{color:"white",marginBottom:"10px", marginTop:"0"}}>{actual.WeatherText}</h5>
                 </div>
 
