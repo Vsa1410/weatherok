@@ -25,7 +25,7 @@ function Home (){
         
         daysForecasts.push(data.DailyForecasts)
         setForecasts3(daysForecasts[0])
-        console.log(daysForecasts3)
+        
         
     }
     
@@ -35,11 +35,14 @@ function Home (){
         
         
 
-
+        
         <div className="body">
+            <div style={{height: "80px"}}>
+
+            </div>
                 <div>
                     <h4 style={{color:"white", 
-                                margin: "60px 0 10% 40px "}}>
+                                margin: "0 0 15% 40px "}}>
                         Bem vindo
                     </h4>
                 </div>
@@ -56,10 +59,11 @@ function Home (){
                 )}
                 
     
-                
+                <div style={{height: "80px"}}></div>
 
                 
         </div>
     )
 }
 export default Home
+export {daysForecasts3}
